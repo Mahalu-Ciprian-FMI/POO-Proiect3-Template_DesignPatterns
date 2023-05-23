@@ -10,7 +10,7 @@ Data::Data()
 	//std::cin >> an;
 }
 //template<typename T>  !!Data<T> instead
-Data::Data(int zi1,std::string luna1, int an1)
+Data::Data(int zi1, std::string luna1, int an1)
 	:zi(zi1), luna(luna1), an(an1)
 {
 }
@@ -196,15 +196,15 @@ void Permanent::set_nr_minori(int nr)
 {
 	nr_minori_intretinere = nr;
 }
-Angajat::~Angajat(){}
-Permanent::~Permanent(){}
+Angajat::~Angajat() {}
+Permanent::~Permanent() {}
 void Part_Time::open() { pool = true; }
-bool  Part_Time::free() const {return !pool; }
+bool  Part_Time::free() const { return !pool; }
 void  Part_Time::close() { pool = false; }
 Part_Time::~Part_Time() { close(); }
 Part_Time connection_pool::get_conn()
 {
-	for (auto conn :connections)
+	for (auto& conn : connections )
 		if (conn.free())
 		{
 			conn.open();
